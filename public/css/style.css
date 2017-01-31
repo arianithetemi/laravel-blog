@@ -1,0 +1,36 @@
+body {
+	font-family: 'Raleway', sans-serif;
+}
+.navbar-default {
+	margin: 0;
+	border: none;
+}
+.navbar-default .navbar-nav li.active a {
+	color: #fff;
+	background: #464646!important;
+}
+.navbar-default .navbar-nav li.active a:hover {
+	color: #fff;
+}
+
+.header {
+	background: url(../img/header3.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 450px;
+}
+
+h1.title-header {
+	margin-top: 110px;
+    font-weight: 700;
+    font-size: 62px;
+    color: #fff;
+    text-shadow: 1px 1px 0px #777777;
+}
+
+p.subtitle {
+	color: #fff;
+	font-size: 15px;
+}

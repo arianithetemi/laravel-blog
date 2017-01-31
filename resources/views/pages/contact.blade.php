@@ -1,8 +1,10 @@
 @extends('main')
 
 @section('title', '| Contact')
+@section('contact-active', 'active')
 
 @section('content')
+  <div class="container">
    <div class="row">
       <div class="col-md-12">
          <h1>Contact Me</h1>
@@ -27,4 +29,5 @@
          </form>
       </div>
    </div>
+  </div>
 @stop
