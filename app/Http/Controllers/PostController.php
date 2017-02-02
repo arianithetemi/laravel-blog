@@ -13,7 +13,8 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        $posts = Post::all();
+        return view('posts.index', ["posts" => $posts]);
     }
 
     /**
@@ -48,8 +49,6 @@ class PostController extends Controller {
         
         // Redirect to another page
         return redirect()->route('posts.show', $post->id);
-
-
     }
 
     /**
