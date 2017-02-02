@@ -57,6 +57,15 @@ h3 {
 	font-weight: 700;
 	color: #5f5f5f;
 }
+
 a:focus {
 	text-decoration: none;
+}
+
+.show-post-container {
+	margin-top: 20px;
+}
+
+.sidebar-for-post {
+	margin-top: 20px;
 }
