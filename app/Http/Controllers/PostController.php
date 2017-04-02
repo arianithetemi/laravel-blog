@@ -13,7 +13,7 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->paginate(7);
         return view('posts.index', ["posts" => $posts]);
     }
 
@@ -44,11 +44,11 @@ class PostController extends Controller {
         $post->title = $request->title;
         $post->body = $request->body;
         $post->save();
-        
+
         Session::flash('success', "The post was successfully saved!");
-        
+
         // Redirect to another page
-        return redirect()->route('posts.show', $post->id);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -83,7 +83,7 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        // Validate the data 
+        // Validate the data
         $this->validate($request, array(
             'title' => 'required|max:255',
             'body' => 'required'
@@ -106,6 +106,10 @@ class PostController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        // Session::flash('success', 'The posts was successfully deleted!');
+        return redirect()->route('posts.index');
     }
 }

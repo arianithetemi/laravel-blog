@@ -35,11 +35,22 @@
 								<td>{{ $post->title }}</td>
 								<td>{{ substr($post->body, 0, 50) }}{{ strlen($post->body) > 50 ? "..." : "" }}</td>
 								<td>{{ date('M j, Y', strtotime($post->created_at)) }}</td>
-								<td><a class="btn btn-sm btn-default" href="{{ route('posts.show', $post->id) }}">View</a>   <a class="btn btn-default btn-sm" href="{{ route('posts.edit', $post->id) }}">Edit</a>   <a onclick="confirm('Are you sure to delete!?');" class="btn btn-default btn-sm" href="{{ route('posts.destroy', $post->id) }}">Delete</a></td>
+								<td>
+									<a class="btn btn-sm btn-default" href="{{ route('posts.show', $post->id) }}">View</a>   <a class="btn btn-default btn-sm" href="{{ route('posts.edit', $post->id) }}">Edit</a>
+									<form style="display: inline;" method="POST" action="{{ route('posts.destroy', $post->id) }}">
+										<!-- onclick="confirm('Are you sure to delete!?');" -->
+										<input type="submit" class="btn btn-warning-outline btn-sm" value="Delete" />
+										<input type="hidden" name="_token" value="{{ Session::token() }}" />
+										{{ method_field('DELETE') }}
+									</form>
+								</td>
 							</tr>
 						@endforeach
 					</tbody>
 				</table>
+				<div class="text-center">
+					{!! $posts->links(); !!}
+				</div>
 			</div>
 		</div>
 	</div>
