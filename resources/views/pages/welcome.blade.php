@@ -20,29 +20,17 @@
    <div class="container">
    <div class="row">
       <div class="col-md-8 posts">
-         <div class="post">
-            <a href="#"><h3>Post Title</h3></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis amet tenetur eum, consequuntur assumenda    officiis quidem omnis placeat. Sequi ex fugiat reiciendis at eligendi inventore ad, odio magnam velit doloribus...</p>
-            <a href="#" class="btn btn-info btn-sm">Read More</a>
-         </div>
 
-         <div class="post">
-            <a href="#"><h3>Post Title</h3></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis amet tenetur eum, consequuntur assumenda officiis quidem omnis placeat. Sequi ex fugiat reiciendis at eligendi inventore ad, odio magnam velit doloribus...</p>
-            <a href="#" class="btn btn-info btn-sm">Read More</a>
-         </div>
+        @foreach($posts as $post)
 
-         <div class="post">
-            <a href="#"><h3>Post Title</h3></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis amet tenetur eum, consequuntur assumenda officiis quidem omnis placeat. Sequi ex fugiat reiciendis at eligendi inventore ad, odio magnam velit doloribus...</p>
-            <a href="#" class="btn btn-info btn-sm">Read More</a>
-         </div>
+           <div class="post">
+              <a href="#"><h3>{{ $post->title }}</h3></a>
+              <p>{{ substr($post->body, 0, 300) }}{{ strlen($post->body) > 300 ? "..." : "" }}</p>
+              <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-info btn-sm">Read More</a>
+           </div>
 
-         <div class="post">
-            <h3>Post Title</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis amet tenetur eum, consequuntur assumenda officiis quidem omnis placeat. Sequi ex fugiat reiciendis at eligendi inventore ad, odio magnam velit doloribus...</p>
-            <a href="#" class="btn btn-info btn-sm">Read More</a>
-         </div>
+         @endforeach
+
 
       </div>
 

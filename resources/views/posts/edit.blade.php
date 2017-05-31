@@ -11,12 +11,16 @@
 				    	<label for="title">Title:</label>
 				    	<textarea type="text" class="form-control" id="title" name="title" rows="1" style="resize:none;">{{ $post->title }}</textarea>
 				    </div>
+						<div class="form-group">
+							<label for="slug">Slug:</label>
+							<input id="slug" name="slug" class="form-control" type="text" value="{{ $post->slug }}"/>
+						</div>
 				    <div class="form-group">
 				    	<label for="body">Body:</label>
 				    	<textarea type="text" class="form-control" id="body" name="body" rows="10">{{ $post->body }}</textarea>
 				    </div>
 				</div>
-				
+
 				<div class="col-md-4 sidebar-for-post">
 					<div class="well">
 						<dl class="dl-horizontal">
@@ -36,7 +40,7 @@
 								<button type="submit" class="btn btn-success btn-block">Save Changes</button>
 								<input type="hidden" name="_token" value="{{ Session::token() }}">
               					{{ method_field('PUT') }}
-							</div>	
+							</div>
 						</div>
 					</div>
 				</div>
